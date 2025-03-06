@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Página de inicio — Netflis</title>
+    <link rel="shortcut icon" href="./media/nficon2016.ico" />
+    <link rel="stylesheet" href="css/main.css" />
+    <script src="js/myList.js" defer></script>
+    <script src="js/addDeleteOfList.js" defer></script>
+    <!-- Include the Dark theme -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@5/dark.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+  </head>
+  <body>
+    <nav>
+      <a href="index.html">
+        <img src="./media/logo.png" alt="" width="100" />
+      </a>
+      <ul class="nav-botonera">
+        <li>
+          <a href="index.html">Inicio</a>
+        </li>
+        <li>
+          <a href="my-list.html">Mi lista</a>
+        </li>
+        <li>
+          <a href="#" id="btnCerrarSesion">Cerrar sesión</a>
+        </li>
+      </ul>
+      <button type="button" id="perfilButton" class="perfil-boton">
+        Seleccionar Perfil
+      </button>
+    </nav>
+
+    <main id="main-container">
+      <div class="category-container">
+        <h3 class="category-title">Mi lista</h3>
+        <div class="grilla-contenido">
+          <!-- Se insertan las películas con JavaScript -->
+        </div>
+      </div>
+    </main>
+
+    <!-- Modal para seleccionar perfil -->
+    <div id="profileModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Seleccionar Perfil</h2>
+        <div id="perfilContainer"></div>
+        <button type="button" id="addProfileButton" class="perfil-boton">
+          Agregar Perfil
+        </button>
+      </div>
+    </div>
+
+    <!-- Modal para agregar perfil -->
+    <div id="addProfileModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Agregar Perfil</h2>
+        <div class="add-profile-content">
+          <input style="padding: 0.5rem 1rem;"
+            type="text"
+            id="newProfileName"
+            placeholder="Nombre del Perfil"
+          />
+          <input type="color" id="newProfileColor" value="#e50914" />
+          <!-- Selector de color -->
+          <button type="button" id="submitProfileButton">Agregar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal para previsualizar pelicula-->
+    <div id="movie-modal" class="movie-modal">
+      <div class="movie-modal-content">
+        <div class="movie-cover-container">
+          <img src="imagen.png" alt="Imagen de ejemplo" class="movie-cover" />
+          <div class="movie-buttons">
+            <button class="movie-play" id="playButton" data-trailer-url="">
+              <span class="movie-play-icon">&#9654;</span>
+              <span>Reproducir</span>
+            </button>
+            <button class="movie-add-list">              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" role="img" viewBox="0 0 24 24" width="24" height="24" data-icon="PlusStandard" aria-hidden="true">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M11 11V2H13V11H22V13H13V22H11V13H2V11H11Z" fill="currentColor"></path>
+              </svg>          
+            </button>
+            <button class="movie-delete-list hidden">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 6L9 17L4 12" />
+              </svg>
+            </button>
+          </div>
+          <div class="movie-cover-gradient"></div>
+        </div>
+        <span id="movie-close" class="close">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" role="img" viewBox="0 0 24 24" width="20" height="20" data-icon="XStandard" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.5858 12L2.29291 3.70706L3.70712 2.29285L12 10.5857L20.2929 2.29285L21.7071 3.70706L13.4142 12L21.7071 20.2928L20.2929 21.7071L12 13.4142L3.70712 21.7071L2.29291 20.2928L10.5858 12Z" fill="currentColor"></path></svg>
+        </span>
+        <div class="movie-main">
+          <div class="movie-info">
+            <span id="movie-year">0000</span>
+            <span id="movie-rating">Rating</span>
+            <span id="movie-genre">Genre</span>
+          </div>
+          <div id="movie-description">Description</div>
+        </div>
+        <div id="trailer-container" class="trailer-container">
+          <iframe id="trailerIframe" width="100%" height="100%" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
